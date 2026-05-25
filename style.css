@@ -168,6 +168,10 @@ h2 {
    RESPONSIVE DESIGN (Für Mobilgeräte)
    ========================================================================== */
 @media (max-width: 768px) {
+    h2 {
+        font-size: 1.2rem;
+    }
+
     .main-header {
         padding: 20px;
         justify-content: center;
@@ -177,7 +181,7 @@ h2 {
         margin: 0 10px;
     }
 
-    .hero-section, .about-section {
+    .hero-section, .about-section, .xp-section {
         grid-template-columns: 1fr;
         gap: 40px;
         text-align: left;
@@ -199,11 +203,11 @@ h2 {
         font-size: 1.6rem;
     }
 
-    .about-section {
+    .about-section, .xp-section {
         gap: 20px;
     }
 
-    .about-content p {
+    .about-content p, .xp-content p {
         font-size: 1.1rem;
         margin-bottom: 20px;
     }
