@@ -1,0 +1,55 @@
+/* ==========================================================================
+   MODERNER CSS RESET
+   ========================================================================== */
+
+/* 1. Box-Sizing auf border-box setzen
+   Sorgt dafür, dass Padding und Border in die Breite/Höhe eingerechnet werden. */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Textgröße-Anpassung nach Orientierungswechsel (iOS) verhindern & Scrollen verschönern */
+html {
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+/* 3. Grundrauschen für den Body entfernen und Schriftarten glätten */
+body {
+    min-height: 100%;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* 4. Elemente für Medien flexibel machen (verhindert das Überlaufen von Bildern) */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* 5. Vererbung von Schriftarten für Formularelemente erzwingen */
+input, button, textarea, select {
+    font: inherit;
+}
+
+/* 6. Textareas standardmäßig am automatischen horizontalen Vergrößern hindern */
+textarea {
+    resize: vertical;
+}
+
+/* 7. Listen-Punkte standardmäßig entfernen (falls gewünscht, sonst auskommentieren) */
+ul, ol {
+    list-style: none;
+}
+
+/* 8. Standard-Links visuell clean machen */
+a {
+    text-decoration: none;
+    color: inherit;
+}

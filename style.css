@@ -24,6 +24,7 @@ body {
 
 a {
     color: inherit;
+    text-decoration: underline;
 }
 /* Container für die zentrierte Ausrichtung des Inhalts */
 .container {
@@ -168,12 +169,39 @@ h2 {
     border-bottom: 1px solid #f5f547
 }
 
-.underline {
-    position: relative;
-    text-decoration: underline;
-    text-underline-offset: 5px;
-    text-decoration-thickness: 1px;
-    cursor: pointer;
+
+/* ==========================================================================
+   BACK TO TOP BUTTON
+   ========================================================================== */
+.back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+    
+    /* Falls du ihn im Footer rechts platzieren willst: */
+    margin-top: 20px;
+}
+
+/* Der Pfeil bekommt eine kleine Animation beim Drüberfahren */
+.back-to-top .arrow {
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
+}
+
+/* Hover-Effekte passend zu deinem Design */
+.back-to-top:hover {
+    color: #000;
+}
+
+.back-to-top:hover .arrow {
+    transform: translateY(-3px); /* Der Pfeil hüpft leicht nach oben */
 }
 
 /* ==========================================================================
