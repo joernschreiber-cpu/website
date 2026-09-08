@@ -32,7 +32,7 @@
 }
 
 /* ==========================================================================
-   Generak Content Styles
+   General Content Styles
    ========================================================================== */
 .fb-content p {
     margin: 1.2rem 0;
@@ -41,4 +41,25 @@
 
 .fb-content img {
     margin: 3rem 0;
+}
+
+/* ==========================================================================
+   Setting Info
+   ========================================================================== */
+
+.fb-setting-info {
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.fb-setting-info img {
+    margin: 0;
+    height: 18px;
+}
+
+.fb-setting-info span {
+    margin-right: 12px;
+    font-weight: 600;
 }
