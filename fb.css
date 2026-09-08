@@ -1,0 +1,44 @@
+/* ==========================================================================
+   Top visual section
+   ========================================================================== */
+
+.header-visual {
+    background:url(gfx/35mm/nyc-ct.jpg);
+    background-size: cover;
+    background-position: center 70%;
+    height: 30vh;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+.fb-hero {
+    text-align: center;
+}
+
+.fb-hero h1 {
+    font-size: 4rem;
+}
+
+.fb-hero .quote {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+
+    font-size: 2.3rem;
+    margin: 3rem 0;
+}
+
+/* ==========================================================================
+   Generak Content Styles
+   ========================================================================== */
+.fb-content p {
+    margin: 1.2rem 0;
+    font-size: 1.2rem;
+}
+
+.fb-content img {
+    margin: 3rem 0;
+}

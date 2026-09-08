@@ -181,6 +181,18 @@ h2 {
 }
 
 /* ==========================================================================
+   Top visual section
+   ========================================================================== */
+
+.header-visual {
+    background:url(gfx/35mm/nyc-ct.jpg);
+    background-size: cover;
+    background-position: center 70%;
+    height: 30vh;
+}
+
+
+/* ==========================================================================
    HIGHLIGHTS & EFFEKTE (Gelbe Marker & Unterstreichungen)
    ========================================================================== */
 .highlight {
