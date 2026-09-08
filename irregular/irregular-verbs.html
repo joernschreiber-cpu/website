@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Englisch: Unregelmäßige Verben (Klasse 6)</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --success: #16a34a;
+            --error: #dc2626;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --border: #cbd5e1;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            background: #e2e8f0;
+            color: var(--text);
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .view {
+            display: none;
+        }
+
+        .view.active {
+            display: block;
+        }
+
+        /* Quiz Styles */
+        .card {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .verb-prompt {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 12px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #64748b;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus {
+            border-color: var(--primary);
+        }
+
+        input.correct {
+            border-color: var(--success);
+            background-color: #f0fdf4;
+        }
+
+        input.incorrect {
+            border-color: var(--error);
+            background-color: #fef2f2;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            font-weight: 600;
+            min-height: 24px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background: var(--primary-hover);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        /* List Styles */
+        .search-box {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        .verb-list {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background: #f8fafc;
+            position: sticky;
+            top: 0;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Irregular Verbs 🚀 Klasse 6</h1>
+    
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchView('quiz')">Üben / Quiz</button>
+        <button class="tab-btn" onclick="switchView('list')">Verben-Liste</button>
+    </div>
+
+    <!-- QUIZ VIEW -->
+    <div id="quiz-view" class="view active">
+        <div class="stats">
+            <span>Frage: <span id="current-q">1</span> / 10</span>
+            <span>Punkte: <span id="score">0</span></span>
+        </div>
+
+        <div class="card">
+            Gesucht wird für:
+            <div class="verb-prompt" id="prompt-infinitive">be</div>
+            <div style="font-size: 0.85rem; color: #64748b;" id="prompt-german">sein</div>
+        </div>
+
+        <div class="input-group">
+            <label for="input-past">Simple Past (2. Form):</label>
+            <input type="text" id="input-past" placeholder="z. B. was / were" autocomplete="off" autocapitalize="off">
+        </div>
+
+        <div class="input-group">
+            <label for="input-participle">Past Participle (3. Form):</label>
+            <input type="text" id="input-participle" placeholder="z. B. been" autocomplete="off" autocapitalize="off">
+        </div>
+
+        <div class="feedback" id="feedback-text"></div>
+
+        <button class="btn" id="action-btn" onclick="checkAnswer()">Prüfen</button>
+    </div>
+
+    <!-- LIST VIEW -->
+    <div id="list-view" class="view">
+        <input type="text" class="search-box" id="search-input" placeholder="Verb suchen..." onkeyup="filterList()">
+        <div class="verb-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Infinitiv</th>
+                        <th>Simple Past</th>
+                        <th>Past Participle</th>
+                        <th>Deutsch</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Wird dynamisch gefüllt -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Typische unregelmäßige Verben für Klasse 6
+    const verbs = [
+        { inf: "be", past: "was / were", part: "been", de: "sein" },
+        { inf: "begin", past: "began", part: "begun", de: "beginnen" },
+        { inf: "break", past: "broke", part: "broken", de: "brechen" },
+        { inf: "bring", past: "brought", part: "brought", de: "bringen" },
+        { inf: "buy", past: "bought", part: "bought", de: "kaufen" },
+        { inf: "catch", past: "caught", part: "caught", de: "fangen" },
+        { inf: "choose", past: "chose", part: "chosen", de: "wählen" },
+        { inf: "come", past: "came", part: "come", de: "kommen" },
+        { inf: "do", past: "did", part: "done", de: "tun, machen" },
+        { inf: "draw", past: "drew", part: "drawn", de: "zeichnen" },
+        { inf: "drink", past: "drank", part: "drunk", de: "trinken" },
+        { inf: "drive", past: "drove", part: "driven", de: "fahren" },
+        { inf: "eat", past: "ate", part: "eaten", de: "essen" },
+        { inf: "fall", past: "fell", part: "fallen", de: "fallen" },
+        { inf: "find", past: "found", part: "found", de: "finden" },
+        { inf: "fly", past: "flew", part: "flown", de: "fliegen" },
+        { inf: "get", past: "got", part: "got", de: "bekommen" },
+        { inf: "give", past: "gave", part: "given", de: "geben" },
+        { inf: "go", past: "went", part: "gone", de: "gehen" },
+        { inf: "grow", past: "grew", part: "grown", de: "wachsen" },
+        { inf: "have", past: "had", part: "had", de: "haben" },
+        { inf: "hear", past: "heard", part: "heard", de: "hören" },
+        { inf: "hit", past: "hit", part: "hit", de: "schlagen, treffen" },
+        { inf: "hold", past: "held", part: "held", de: "halten" },
+        { inf: "hurt", past: "hurt", part: "hurt", de: "verletzt(en)" },
+        { inf: "keep", past: "kept", part: "kept", de: "behalten" },
+        { inf: "know", past: "knew", part: "known", de: "wissen, kennen" },
+        { inf: "learn", past: "learnt / learned", part: "learnt / learned", de: "lernen" },
+        { inf: "leave", past: "left", part: "left", de: "verlassen" },
+        { inf: "let", past: "let", part: "let", de: "lassen" },
+        { inf: "lose", past: "lost", part: "lost", de: "verlieren" },
+        { inf: "make", past: "made", part: "made", de: "machen, herstellen" },
+        { inf: "meet", past: "met", part: "met", de: "treffen" },
+        { inf: "pay", past: "paid", part: "paid", de: "zahlen" },
+        { inf: "put", past: "put", part: "put", de: "setzen, stellen, legen" },
+        { inf: "read", past: "read", part: "read", de: "lesen" },
+        { inf: "ride", past: "rode", part: "ridden", de: "reiten, fahren" },
+        { inf: "ring", past: "rang", part: "rung", de: "klingeln" },
+        { inf: "run", past: "ran", part: "run", de: "laufen" },
+        { inf: "say", past: "said", part: "said", de: "sagen" },
+        { inf: "see", past: "saw", part: "seen", de: "sehen" },
+        { inf: "sell", past: "sold", part: "sold", de: "verkaufen" },
+        { inf: "send", past: "sent", part: "sent", de: "senden, schicken" },
+        { inf: "set", past: "set", part: "set", de: "setzen" },
+        { inf: "show", past: "showed", part: "shown", de: "zeigen" },
+        { inf: "sing", past: "sang", part: "sung", de: "singen" },
+        { inf: "sit", past: "sat", part: "sat", de: "sitzen" },
+        { inf: "sleep", past: "slept", part: "slept", de: "schlafen" },
+        { inf: "speak", past: "spoke", part: "spoken", de: "sprechen" },
+        { inf: "spend", past: "spent", part: "spent", de: "(Zeit/Geld) verbringen/ausgeben" },
+        { inf: "stand", past: "stood", part: "stood", de: "stehen" },
+        { inf: "swim", past: "swam", part: "swum", de: "schwimmen" },
+        { inf: "take", past: "took", part: "taken", de: "nehmen" },
+        { inf: "teach", past: "taught", part: "taught", de: "unterrichten" },
+        { inf: "tell", past: "told", part: "told", de: "erzählen" },
+        { inf: "think", past: "thought", part: "thought", de: "denken" },
+        { inf: "understand", past: "understood", part: "understood", de: "verstehen" },
+        { inf: "wake", past: "woke", part: "woken", de: "aufwachen" },
+        { inf: "wear", past: "wore", part: "worn", de: "tragen (Kleidung)" },
+        { inf: "win", past: "won", part: "won", de: "gewinnen" },
+        { inf: "write", past: "wrote", part: "written", de: "schreiben" }
+    ];
+
+    let currentVerbIndex = 0;
+    let score = 0;
+    let questionCount = 1;
+    let quizState = 'checking'; // 'checking' or 'next'
+    let shuffledVerbs = [];
+
+    function switchView(viewName) {
+        document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        
+        if (viewName === 'quiz') {
+            document.getElementById('quiz-view').classList.add('active');
+            event.target.classList.add('active');
+        } else {
+            document.getElementById('list-view').classList.add('active');
+            event.target.classList.add('active');
+            renderList(verbs);
+        }
+    }
+
+    function shuffleArray(array) {
+        let currentIndex = array.length, randomIndex;
+        while (currentIndex != 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        }
+        return array;
+    }
+
+    function initQuiz() {
+        shuffledVerbs = shuffleArray([...verbs]);
+        currentVerbIndex = 0;
+        score = 0;
+        questionCount = 1;
+        loadNextQuestion();
+    }
+
+    function loadNextQuestion() {
+        if (currentVerbIndex >= shuffledVerbs.length || questionCount > 10) {
+            // Quiz beendet nach 10 Fragen (oder wenn Liste durch ist)
+            document.getElementById('quiz-view').innerHTML = `
+                <div style="text-align: center; padding: 20px;">
+                    <h2>🎉 Quiz beendet!</h2>
+                    <p style="font-size: 1.2rem;">Du hast ${score} von 10 Punkten erreicht.</p>
+                    <button class="btn" onclick="location.reload()">Nochmal spielen</button>
+                </div>
+            `;
+            return;
+        }
+
+        const current = shuffledVerbs[currentVerbIndex];
+        document.getElementById('prompt-infinitive').textContent = current.inf;
+        document.getElementById('prompt-german').textContent = current.de;
+        
+        const pastInput = document.getElementById('input-past');
+        const partInput = document.getElementById('input-participle');
+        
+        pastInput.value = '';
+        partInput.value = '';
+        pastInput.classList.remove('correct', 'incorrect');
+        partInput.classList.remove('correct', 'incorrect');
+        pastInput.disabled = false;
+        partInput.disabled = false;
+
+        document.getElementById('feedback-text').textContent = '';
+        document.getElementById('current-q').textContent = questionCount;
+        document.getElementById('score').textContent = score;
+
+        const actionBtn = document.getElementById('action-btn');
+        actionBtn.textContent = "Prüfen";
+        actionBtn.onclick = checkAnswer;
+        quizState = 'checking';
+        
+        pastInput.focus();
+    }
+
+    function cleanString(str) {
+        return str.trim().toLowerCase().replace(/\s+/g, ' ');
+    }
+
+    function checkValidAnswer(userAnswer, targetAnswer) {
+        const cleanedUser = cleanString(userAnswer);
+        const options = targetAnswer.split('/').map(opt => cleanString(opt));
+        return options.includes(cleanedUser);
+    }
+
+    function checkAnswer() {
+        const current = shuffledVerbs[currentVerbIndex];
+        const pastInput = document.getElementById('input-past');
+        const partInput = document.getElementById('input-participle');
+        const feedback = document.getElementById('feedback-text');
+
+        const userPast = pastInput.value;
+        const userPart = partInput.value;
+
+        const isPastCorrect = checkValidAnswer(userPast, current.past);
+        const isPartCorrect = checkValidAnswer(userPart, current.part);
+
+        pastInput.disabled = true;
+        partInput.disabled = true;
+
+        if (isPastCorrect) {
+            pastInput.classList.add('correct');
+        } else {
+            pastInput.classList.add('incorrect');
+        }
+
+        if (isPartCorrect) {
+            partInput.classList.add('correct');
+        } else {
+            partInput.classList.add('incorrect');
+        }
+
+        if (isPastCorrect && isPartCorrect) {
+            feedback.style.color = 'var(--success)';
+            feedback.textContent = 'Richtig! Sehr gut gemacht! 🎉';
+            score++;
+        } else {
+            feedback.style.color = 'var(--error)';
+            feedback.textContent = `Leider falsch. Richtig wäre: ${current.past} / ${current.part}`;
+        }
+
+        document.getElementById('score').textContent = score;
+
+        const actionBtn = document.getElementById('action-btn');
+        actionBtn.textContent = "Nächste Frage";
+        actionBtn.onclick = () => {
+            currentVerbIndex++;
+            questionCount++;
+            loadNextQuestion();
+        };
+        quizState = 'next';
+    }
+
+    function renderList(data) {
+        const tbody = document.getElementById('table-body');
+        tbody.innerHTML = '';
+        data.forEach(v => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td><strong>${v.inf}</strong></td>
+                <td>${v.past}</td>
+                <td>${v.part}</td>
+                <td style="color: #64748b;">${v.de}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    function filterList() {
+        const query = document.getElementById('search-input').value.toLowerCase();
+        const filtered = verbs.filter(v => 
+            v.inf.toLowerCase().includes(query) || 
+            v.past.toLowerCase().includes(query) || 
+            v.part.toLowerCase().includes(query) || 
+            v.de.toLowerCase().includes(query)
+        );
+        renderList(filtered);
+    }
+
+    // Event Listener für Enter-Taste
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            const actionBtn = document.getElementById('action-btn');
+            if (document.getElementById('quiz-view').classList.contains('active')) {
+                actionBtn.click();
+            }
+        }
+    });
+
+    // Start beim Laden
+    initQuiz();
+</script>
+
+</body>
+</html>
