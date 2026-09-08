@@ -47,19 +47,38 @@
    Setting Info
    ========================================================================== */
 
-.fb-setting-info {
+.fb-shooting-info {
     margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.fb-shooting-info-item {
     display: flex;
     align-items: center;
     gap: 6px;
 }
 
-.fb-setting-info img {
+.fb-shooting-info-item img {
     margin: 0;
     height: 18px;
 }
 
-.fb-setting-info span {
-    margin-right: 12px;
+.fb-shooting-info-item span {
     font-weight: 600;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Für Mobilgeräte)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .fb-shooting-info {
+    display: block;
+    }
+
+    .fb-shooting-info-item {
+        margin: .6rem 0;
+    }
 }
