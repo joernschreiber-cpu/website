@@ -77,7 +77,9 @@
     font-weight: 600;
 }
 
-
+/* ==========================================================================
+   Preview item
+   ========================================================================== */
 
 .fb-preview {
     font-family: "Playfair", serif;
@@ -85,15 +87,24 @@
     font-size: 3rem;
     color: white;
     display: block;
-    background-image: url(35mm/nyc/img/cover.jpg);
+    
     background-size: cover;
-
     padding: 3rem 0;
     text-align: center;
 
-    border-radius: .4rem;
+    border-radius: .2rem;
+    transition: background 0.3s ease;
 }
 
+
+
+.fb-preview.nyc {
+    background-image: url(35mm/nyc/img/cover.jpg);
+}
+
+.fb-preview.nyc:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(35mm/nyc/img/cover.jpg);
+}
 
 /* ==========================================================================
    RESPONSIVE DESIGN (Für Mobilgeräte)
