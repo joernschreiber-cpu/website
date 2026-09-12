@@ -3,10 +3,18 @@
    ========================================================================== */
 
 .header-visual {
-    background:url(gfx/35mm/nyc-ct.jpg);
     background-size: cover;
-    background-position: center 70%;
     height: 30vh;
+}
+
+.header-visual.overview {
+    background-image:url(35mm/img/cover.jpg);
+    background-position: center;
+}
+
+.header-visual.nyc {
+    background-image:url(35mm/nyc/img/cover.jpg);
+    background-position: center;
 }
 
 /* ==========================================================================
@@ -69,6 +77,22 @@
     font-weight: 600;
 }
 
+
+
+.fb-preview {
+    font-family: Playfair, serif;
+    text-decoration: none;
+    font-size: 3rem;
+    color: white;
+    display: block;
+    background-image: url(35mm/nyc/img/cover.jpg);
+    background-size: cover;
+
+    padding: 3rem 0;
+    text-align: center;
+}
+
+
 /* ==========================================================================
    RESPONSIVE DESIGN (Für Mobilgeräte)
    ========================================================================== */
@@ -82,3 +106,5 @@
         margin: .6rem 0;
     }
 }
+
+
