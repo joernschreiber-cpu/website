@@ -231,6 +231,11 @@ h2 {
    RESPONSIVE DESIGN (Für Mobilgeräte)
    ========================================================================== */
 @media (max-width: 768px) {
+    
+    .container {
+        padding: 0 20px;
+    }
+
     h2 {
         font-size: 1.2rem;
     }
