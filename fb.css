@@ -17,6 +17,11 @@
     background-position: center;
 }
 
+.header-visual.syd {
+    background-image:url(35mm/sydney/img/cover.jpg);
+    background-position: center;
+}
+
 /* ==========================================================================
    Hero Section
    ========================================================================== */
@@ -26,7 +31,9 @@
 }
 
 .fb-hero h1 {
-    font-size: 4rem;
+    font-size: 5rem;
+    font-weight: 100;
+    margin: 0 0 3rem 0;
 }
 
 .fb-hero .quote {
@@ -47,9 +54,11 @@
     font-size: 1.2rem;
 }
 
-.fb-content img {
+.fb-content .picture {
     margin: 3rem 0;
+    width: 100%;
 }
+
 
 /* ==========================================================================
    Setting Info
@@ -101,9 +110,17 @@
 .fb-preview.nyc {
     background-image: url(35mm/nyc/img/cover.jpg);
 }
-
 .fb-preview.nyc:hover {
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(35mm/nyc/img/cover.jpg);
+}
+
+.fb-preview.syd {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(35mm/sydney/img/cover.jpg);
+    background-position: center 50%;
+    
+}
+.fb-preview.syd:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(35mm/sydney/img/cover.jpg);
 }
 
 /* ==========================================================================
@@ -121,6 +138,11 @@
 
     .fb-preview {
         font-size: 1.4rem;
+    }
+
+    .fb-hero h1 {
+        font-size: 3rem;
+        margin: 0 0 2rem 0;
     }
 }
 
