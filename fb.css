@@ -22,6 +22,11 @@
     background-position: center;
 }
 
+.header-visual.sept26 {
+    background-image:url(35mm/sept26/img/cover.jpg);
+    background-position: center;
+}
+
 /* ==========================================================================
    Hero Section
    ========================================================================== */
@@ -121,6 +126,15 @@
 }
 .fb-preview.syd:hover {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(35mm/sydney/img/cover.jpg);
+}
+
+.fb-preview.sept26 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(35mm/sept26/img/cover.jpg);
+    background-position: center 50%;
+    
+}
+.fb-preview.sept26:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(35mm/sept26/img/cover.jpg);
 }
 
 /* ==========================================================================
