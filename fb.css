@@ -27,12 +27,21 @@
     background-position: center;
 }
 
+.header-visual.sthg {
+    background-image:url(35mm/sthg/img/cover.jpg);
+    background-position: center;
+}
+
 /* ==========================================================================
    Hero Section
    ========================================================================== */
 
 .fb-hero {
     text-align: center;
+}
+
+.fb-article .fb-hero {
+    text-align: left;
 }
 
 .fb-hero h1 {
@@ -135,6 +144,15 @@
 }
 .fb-preview.sept26:hover {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(35mm/sept26/img/cover.jpg);
+}
+
+.fb-preview.sthg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(35mm/sthg/img/cover.jpg);
+    background-position: center 50%;
+    
+}
+.fb-preview.sthg:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(35mm/sthg/img/cover.jpg);
 }
 
 /* ==========================================================================
