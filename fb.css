@@ -178,8 +178,11 @@
     }
 
     .fb-hero h1 {
-        font-size: 3rem;
+        font-size: 2rem;
         margin: 0 0 2rem 0;
+    }
+    .fb-hero .quote {
+        font-size: 1.2rem;
     }
 }
 
