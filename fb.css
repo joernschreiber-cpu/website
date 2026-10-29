@@ -45,9 +45,14 @@
 }
 
 .fb-hero h1 {
-    font-size: 5rem;
-    font-weight: 100;
+    font-size: 3.5rem;
+    font-weight: 700;
     margin: 0 0 3rem 0;
+
+    background-color: #FFFFA5; /* Pastellgelber Textmarker-Effekt */
+    padding: 0 8px;
+    display: inline-block;
+    border-bottom: 2px solid #f5f547
 }
 
 .fb-hero .quote {
@@ -56,8 +61,8 @@
     font-weight: 200;
     font-style: normal;
 
-    font-size: 2.3rem;
-    margin: 3rem 0;
+    font-size: 2.8rem;
+    margin: 0 0 3rem 0;
 }
 
 /* ==========================================================================
