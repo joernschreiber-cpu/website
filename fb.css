@@ -32,6 +32,11 @@
     background-position: center;
 }
 
+.header-visual.oct26{
+    background-image:url(35mm/oct26_1/img/cover.jpg);
+    background-position: center;
+}
+
 /* ==========================================================================
    Hero Section
    ========================================================================== */
@@ -160,6 +165,14 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(35mm/sthg/img/cover.jpg);
 }
 
+.fb-preview.oct26 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(35mm/oct26_1/img/cover.jpg);
+    background-position: center 50%;
+    
+}
+.fb-preview.oct26:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(35mm/oct26_1/img/cover.jpg);
+}
 /* ==========================================================================
    RESPONSIVE DESIGN (Für Mobilgeräte)
    ========================================================================== */
