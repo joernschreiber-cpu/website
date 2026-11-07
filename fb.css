@@ -20,6 +20,15 @@
     background-image:url(35mm/img/cover3.jpg);
     background-position: center;
 }
+.header-visual.cover4 {
+    background-image:url(35mm/img/cover4.jpg);
+    background-position: center;
+}
+.header-visual.cover5 {
+    background-image:url(35mm/img/cover5.jpg);
+    background-position: center;
+}
+
 
 .header-visual.nyc {
     background-image:url(35mm/nyc/img/cover.jpg);
