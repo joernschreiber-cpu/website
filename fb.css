@@ -8,7 +8,15 @@
     
 }
 
-.header-visual.overview {
+.header-visual.cover1 {
+    background-image:url(35mm/img/cover1.jpg);
+    background-position: center;
+}
+.header-visual.cover2 {
+    background-image:url(35mm/img/cover2.jpg);
+    background-position: center;
+}
+.header-visual.cover3 {
     background-image:url(35mm/img/cover3.jpg);
     background-position: center;
 }
